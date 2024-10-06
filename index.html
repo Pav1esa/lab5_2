@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulate Strings</title>
+</head>
+<body>
+  <script>
+    function manipulateStrings(inputString) {
+      const words = inputString.split(' ');
+
+      // Перевірити, чи є щонайменше три слова
+      if (words.length >= 3) {
+        [words[0], words[2]] = [words[2], words[0]];
+      }
+
+      const matchingFirstLast = words.filter(word => 
+        word.length > 1 && word[0].toLowerCase() === word[word.length - 1].toLowerCase()
+      );
+
+      document.write(`Вхідний рядок: ${inputString}<br>`);
+      document.write(`Рядок після перестановки першого та третього слова: ${words.join(' ')}<br>`);
+      document.write(`Кількість слів, у яких перша та остання літери збігаються та слово не складається з однієї букви: ${matchingFirstLast.length}<br>`);
+    }
+
+    const exampleString = "This is a test string for manipulation.";
+    manipulateStrings(exampleString);
+  </script>
+</body>
+</html>
